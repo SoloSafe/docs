@@ -53,17 +53,7 @@ This paper proposes a new payment system that is offline and tamper-resistant, a
 
 # Proposed Solution
 
-| Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
-| Cell A1  | Cell A2  | Cell A3  |
-| Cell B1  | Cell B2  | Cell B3  |
 
-| Number | Name | Description |
-|--------|------|---|
-| 1 | Jean | A person |
-| 2 | John | A person |
-
-    
 -----
 
 
@@ -147,30 +137,7 @@ Here is a list of the instructions set Supported by the SoloSafe VTEE:
 
 # System architecture
 
-Here is a diagram of the system architecture:
 
-```mermaid
-graph TD;
-    A[User] -->|Create transaction| B[PCD]
-    B -->|Sign transaction| C[Bridge]
-    C -->|Publish transaction| D[Publisher]
-    D -->|Verify transaction| E[User]
-```
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal[^2].
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
 
 ![System Architecture](assets/unconsensus-common-space.png)
 
