@@ -73,6 +73,53 @@ This section describes the main components of the proposed system to allow the r
 
 ### 1. Bridge
 
+A bridge is a connection between two different blockchain networks. In this specific case, the bridge is used to connect the offline payment system with the existing blockchain network. SoloSafe uses Starknet as its main blockchain network. The bridge is used :
+- `for assets download` : This is a bridge transaction that burns the asset onchain and mints it on the device. The device ID is used to sign the transaction and to verify that the transaction is valid.
+- `for assets upload` : This is a bridge transaction that mints the asset onchain and burns it on the device. The device ID is used to sign the transaction and to verify that the transaction is valid.
+
+### 2. Defungibilization and Fungibilization
+A fungible asset is an asset that is interchangeable with other assets of the same type. For example, a dollar bill is a fungible asset because it can be exchanged for another dollar bill. A non fungible asset is an asset that is unique and cannot be exchanged for another asset of the same type. For example, a piece of art is a non fungible asset because it is unique and cannot be exchanged for another piece of art.
+
+#### 2.1 Defungibilization
+In order to allow the user to use the asset in a trustless manner and make it trackable, the asset is defungibilized. This means that the asset is converted into a non fungible asset. The defungibilization process is done by creating a unique identifier for the asset and by signing the transaction with the device ID. 
+
+For the USDT cryptocurrency, we apply the following mathematical operation to convert the asset into a non fungible asset:  
+a) Number of tokens `n`:  
+$n = f * 10^p$   
+> where `n` is the number of new non fungible assets, `f` is the fungible asset and `p` is the precision of the asset. The precision is used to ensure that the asset is unique and cannot be exchanged for another asset of the same type.  
+
+E.g : For `98 USDT`, with a precision of `2`, we have :   
+$n = 98 * 10^2 = 9800$  
+This means that we have `9800` new non fungible assets.  
+
+b) Here are the non fungible assets that are created `nF`:  
+$nF_i = p$ 
+> where `nF_i` is the non fungible asset, `p` is the precision of the asset and `i` is the index of the non fungible asset. The index is used to ensure that the asset is unique and cannot be exchanged for another asset of the same type.
+E.g : For `98 USDT`, with a precision of `2`, we have :  
+$nF_0 = 0.01$  
+$nF_1 = 0.02$  
+$...$  
+
+#### 2.2 Fungibilization
+After the user has used the asset, the asset is fungibilized. This means that the asset is converted back into a fungible asset. The fungibilization process is done by combining the values of all the non fungible assets and by signing the transaction with the device ID.  
+
+To fungibilize the assets, we apply the following mathematical operation:  
+$F = \sum_{i=0}^{n-1} nF_i$  
+> where `F` is the fungible asset, `nF_i` is the non fungible asset and `n` is the number of non fungible assets. The index is used to ensure that the asset is unique and cannot be exchanged for another asset of the same type.
+  
+
+
+
+
+
+
+
+Where `nFungible` is the non fungible asset, `Fungible` is the fungible asset and `precision` is the precision of the asset. The precision is used to ensure that the asset is unique and cannot be exchanged for another asset of the same type.
+
+The defungibilization process is done using a zero knowledge proof to ensure that the transaction is valid and that it has not been tampered with.
+
+
+
 ### 2. PCD
 
 ![PCD](assets/pcd.png)
